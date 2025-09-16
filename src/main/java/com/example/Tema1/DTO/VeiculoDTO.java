@@ -18,7 +18,6 @@ public record VeiculoDTO(
         Integer anoFabricacao,
         @NotBlank
         String placa,
-        //List<AcessorioDTO> acessorios
         List<Acessorio> acessorios
 ) {
 }

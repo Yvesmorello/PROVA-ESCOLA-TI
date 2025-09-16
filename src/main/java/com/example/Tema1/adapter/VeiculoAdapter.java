@@ -21,7 +21,6 @@ public class VeiculoAdapter implements Adapter<Veiculo, VeiculoDTO> {
         veiculo.setModelo(dto.modelo());
         veiculo.setPlaca(dto.placa());
         veiculo.setAnoFabricacao(dto.anoFabricacao());
-        //veiculo.setAcessorios(dto.acessorios().stream().map(acessorioAdapter::toEntity).collect(Collectors.toList()));
         veiculo.setAcessorios(dto.acessorios());
 
         return veiculo;
@@ -34,7 +33,6 @@ public class VeiculoAdapter implements Adapter<Veiculo, VeiculoDTO> {
                 .modelo(entity.getModelo())
                 .placa(entity.getPlaca())
                 .anoFabricacao(entity.getAnoFabricacao())
-                //.acessorios(entity.getAcessorios().stream().map(acessorioAdapter::toDto).collect(Collectors.toList()))
                 .acessorios(entity.getAcessorios())
                 .build();
 

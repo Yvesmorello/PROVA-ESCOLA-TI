@@ -28,7 +28,7 @@ public class AcessorioController {
 
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/id")
+                .path("/{id}")
                 .buildAndExpand(acessorioDTO.id())
                 .toUri();
 

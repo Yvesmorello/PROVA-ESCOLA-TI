@@ -18,17 +18,9 @@ public class AcessorioAdapter implements Adapter<Acessorio, AcessorioDTO> {
 
     @Override
     public Acessorio toEntity(AcessorioDTO dto) {
-
-        Veiculo veiculo = null;
-        if (dto.veiculo() != null) {
-            veiculo = veiculoRepository.findById(dto.veiculo().getId()).orElse(null);
-        }
         Acessorio acessorio = new Acessorio();
-
         acessorio.setId(dto.id());
         acessorio.setNome(dto.nome());
-        acessorio.setVeiculo(dto.veiculo());
-
         return acessorio;
     }
 
@@ -37,7 +29,7 @@ public class AcessorioAdapter implements Adapter<Acessorio, AcessorioDTO> {
         return AcessorioDTO.builder()
                 .id(entity.getId())
                 .nome(entity.getNome())
-                .veiculo(entity.getVeiculo())
+                .veiculoId(entity.getVeiculo() != null ? entity.getVeiculo().getId() : null)
                 .build();
     }
 }

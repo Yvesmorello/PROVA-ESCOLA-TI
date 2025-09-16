@@ -1,5 +1,6 @@
 package com.example.Tema1.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -32,7 +33,9 @@ public class Veiculo {
     @NotBlank
     private String placa;
 
-    @OneToMany(mappedBy = "veiculo",  fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Column
+    @OneToMany(mappedBy = "veiculo",  fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Acessorio> acessorios;
 
     public void addAcessorio(Acessorio acessorio) {
@@ -42,5 +45,6 @@ public class Veiculo {
 
     public void removeAcessorio(Acessorio acessorio) {
         this.acessorios.remove(acessorio);
+        acessorio.setVeiculo(null);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.Tema1.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -23,5 +24,6 @@ public class Acessorio {
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")
+    @JsonBackReference
     private Veiculo veiculo;
 }

@@ -1,6 +1,8 @@
 package com.example.Tema1.controller;
 
+import com.example.Tema1.DTO.AcessorioDTO;
 import com.example.Tema1.DTO.VeiculoDTO;
+import com.example.Tema1.entity.Acessorio;
 import com.example.Tema1.entity.Veiculo;
 import com.example.Tema1.service.VeiculoService;
 import jakarta.validation.Valid;
@@ -57,15 +59,15 @@ public class VeiculoController {
     }
 
     @PutMapping("/addAcessorio/{id}")
-    public ResponseEntity<Veiculo> addAcessorio(@PathVariable final Long id, @RequestBody @Valid final VeiculoDTO veiculoDTO){
-        service.addAcessorio(id, veiculoDTO);
+    public ResponseEntity<Veiculo> addAcessorio(@PathVariable final Long id, @RequestBody @Valid final AcessorioDTO acessorioDTO){
+        Veiculo veiculo = service.addAcessorio(id, acessorioDTO);
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/removeAcessorio/{idVeiculo}/{idAcessorio}")
+    @DeleteMapping("/removeAcessorio/{idVeiculo}/{idAcessorio}")
     public ResponseEntity<Veiculo> removeAcessorio(@PathVariable final Long idVeiculo, @PathVariable final Long idAcessorio){
         service.removeAcessorio(idVeiculo, idAcessorio);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
 }

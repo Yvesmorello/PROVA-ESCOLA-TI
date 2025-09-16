@@ -12,6 +12,6 @@ public record AcessorioDTO(
         Long id,
         @NotBlank
         String nome,
-        Veiculo veiculo
+        Long veiculoId
 ) {
 }
