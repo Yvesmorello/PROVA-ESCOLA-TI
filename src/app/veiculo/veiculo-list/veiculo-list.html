@@ -1,0 +1,29 @@
+<div class="display">
+  <main>
+    <header>
+        <h2>Veículos</h2>
+      <button (click)="goForm()">Novo</button>
+    </header>
+    <section>
+      <div>
+        <span>Código</span>
+        <span>Modelo</span>
+        <span>Ano Fabricação</span>
+        <span>Placa</span>
+        <span>Acessórios</span>
+        <span></span>
+      </div>
+      <div *ngFor="let veiculo of response?.content; let i = index">
+        <span>{{ veiculo.id }}</span>
+        <span>{{ veiculo.modelo }}</span>
+        <span>{{ veiculo.anoFabricacao }}</span>
+        <span>{{ veiculo.placa }}</span>
+        <span>{{ veiculo.acessorios }}</span>
+        <span>
+          <button (click)="goForm(veiculo.id)">Editar</button>
+          <button (click)="delete(veiculo.id!)">Deletar</button>
+        </span>
+      </div>
+    </section>
+  </main>
+</div>

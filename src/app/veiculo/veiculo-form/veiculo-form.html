@@ -1,0 +1,20 @@
+
+<div class="display">
+  <main>
+    <header>
+      Novo Veículo
+    </header>
+    <section>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+          <input type="text" formControlName="modelo" placeholder="Modelo">
+          <input type="number" formControlName="anoFabricacao" placeholder="Ano de Fabricação">
+          <input type="text" formControlName="placa" placeholder="Placa">
+          <span class="submit">
+            <button [formaction]="onSubmit">Enviar</button>
+          </span>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>

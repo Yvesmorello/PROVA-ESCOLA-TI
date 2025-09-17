@@ -1,0 +1,26 @@
+.display {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 100vw;
+  max-width: 768px;
+}
+
+main header {
+  text-align: center;
+}
+
+main section div {
+  display: grid;
+  grid-template-columns: 1fr 5fr 3fr 1fr 4fr 1fr 2fr;
+}
+
+main section div span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
